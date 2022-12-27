@@ -69,5 +69,36 @@ namespace ResidenciaDesafio1
                 }
             }
         }
+
+        public int ReadMenuAgenda()
+        {
+            Console.WriteLine("Agenda");
+            Console.WriteLine("1-Agendar consulta");
+            Console.WriteLine("2-Cancelar agendamento");
+            Console.WriteLine("3-Listar agenda");
+            Console.WriteLine("4-Voltar p/ menu principal");
+
+            while (true)
+            {
+                try
+                {
+                    var input = Console.ReadLine();
+                    var escolha = Int32.Parse(input);
+
+                    if (escolha < 1 || escolha > 4)
+                    {
+                        Console.WriteLine("Opção inválida");
+                        continue;
+                    }
+
+                    return escolha;
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Opção inválida");
+                    continue;
+                }
+            }
+        }
     }
 }
