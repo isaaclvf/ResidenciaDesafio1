@@ -20,15 +20,15 @@ namespace ResidenciaDesafio1
                 try
                 {
                     var input = Console.ReadLine();
-                    var escolha = Int32.Parse(input);
+                    var opc = Int32.Parse(input);
 
-                    if (escolha < 1 || escolha > 3)
+                    if (opc < 1 || opc > 3)
                     {
                         Console.WriteLine("Opção inválida");
                         continue;
                     }
 
-                    return escolha;
+                    return opc;
                 }
                 catch (Exception)
                 {
@@ -52,15 +52,15 @@ namespace ResidenciaDesafio1
                 try
                 {
                     var input = Console.ReadLine();
-                    var escolha = Int32.Parse(input);
+                    var opc = Int32.Parse(input);
 
-                    if (escolha < 1 || escolha > 5)
+                    if (opc < 1 || opc > 5)
                     {
                         Console.WriteLine("Opção inválida");
                         continue;
                     }
 
-                    return escolha;
+                    return opc;
                 }
                 catch (Exception)
                 {
@@ -83,15 +83,15 @@ namespace ResidenciaDesafio1
                 try
                 {
                     var input = Console.ReadLine();
-                    var escolha = Int32.Parse(input);
+                    var opc = Int32.Parse(input);
 
-                    if (escolha < 1 || escolha > 4)
+                    if (opc < 1 || opc > 4)
                     {
                         Console.WriteLine("Opção inválida");
                         continue;
                     }
 
-                    return escolha;
+                    return opc;
                 }
                 catch (Exception)
                 {
