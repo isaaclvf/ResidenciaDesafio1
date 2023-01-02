@@ -9,7 +9,7 @@ namespace ResidenciaDesafio1
     public class MenuForm
     {
         public int OpcPrincipal { get; private set; }
-        public int OpcCadastro { get; private set; }
+        public int OpcPacientes { get; private set; }
         public int OpcAgenda { get; private set; }
 
         public void ReadMenuPrincipal()
@@ -43,7 +43,7 @@ namespace ResidenciaDesafio1
             }
         }
 
-        public void ReadMenuCadastro()
+        public void ReadMenuPacientes()
         {
             Console.WriteLine("Menu do Cadastro de Pacientes");
             Console.WriteLine("1-Cadastrar novo paciente");
@@ -65,7 +65,7 @@ namespace ResidenciaDesafio1
                         continue;
                     }
 
-                    OpcCadastro = opc;
+                    OpcPacientes = opc;
                     return;
                 }
                 catch (Exception)
