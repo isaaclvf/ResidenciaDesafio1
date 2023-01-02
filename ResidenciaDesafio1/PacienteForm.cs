@@ -26,7 +26,7 @@ namespace ResidenciaDesafio1
                     var msg = validator.Errors.GetErrorMessage(field);
 
                     if (msg.Length > 0)
-                        Console.WriteLine("{0}: {1}", field.ToString(), msg);
+                        Console.WriteLine("Erro em {0}: {1}", field.ToString(), msg);
                 }
                 Console.WriteLine();
             }
