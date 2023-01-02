@@ -24,6 +24,7 @@ namespace ResidenciaDesafio1
         {
             errors.Clear();
         }
+
         public bool IsEmpty => errors.Count == 0;
 
         public bool HasError(PacienteField field)
