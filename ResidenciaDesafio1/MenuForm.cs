@@ -8,7 +8,11 @@ namespace ResidenciaDesafio1
 {
     public class MenuForm
     {
-        public int ReadMenuPrincipal()
+        public int OpcPrincipal { get; private set; }
+        public int OpcCadastro { get; private set; }
+        public int OpcAgenda { get; private set; }
+
+        public void ReadMenuPrincipal()
         {
             Console.WriteLine("Menu Principal");
             Console.WriteLine("1-Cadastro de pacientes");
@@ -28,7 +32,8 @@ namespace ResidenciaDesafio1
                         continue;
                     }
 
-                    return opc;
+                    OpcPrincipal = opc;
+                    return;
                 }
                 catch (Exception)
                 {
@@ -38,7 +43,7 @@ namespace ResidenciaDesafio1
             }
         }
 
-        public int ReadMenuCadastro()
+        public void ReadMenuCadastro()
         {
             Console.WriteLine("Menu do Cadastro de Pacientes");
             Console.WriteLine("1-Cadastrar novo paciente");
@@ -60,7 +65,8 @@ namespace ResidenciaDesafio1
                         continue;
                     }
 
-                    return opc;
+                    OpcCadastro = opc;
+                    return;
                 }
                 catch (Exception)
                 {
@@ -70,7 +76,7 @@ namespace ResidenciaDesafio1
             }
         }
 
-        public int ReadMenuAgenda()
+        public void ReadMenuAgenda()
         {
             Console.WriteLine("Agenda");
             Console.WriteLine("1-Agendar consulta");
@@ -91,7 +97,8 @@ namespace ResidenciaDesafio1
                         continue;
                     }
 
-                    return opc;
+                    OpcAgenda = opc;
+                    return;
                 }
                 catch (Exception)
                 {
