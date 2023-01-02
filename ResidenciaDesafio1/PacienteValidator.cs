@@ -9,12 +9,19 @@ namespace ResidenciaDesafio1
     public class PacienteValidator
     {
         private readonly PacienteErrors errors = new PacienteErrors();
-        public PacienteDTO Paciente { get; private set; }
+        private readonly List<string> cpfsCadastrados = new List<string>();
 
-        public PacienteValidator()
+        public PacienteValidator(Cadastro cadastro)
         {
             Paciente = new();
+            // Usado na validação de CPF
+            cadastro.Pacientes.ForEach(paciente =>
+            {
+                cpfsCadastrados.Add(paciente.CPF);
+            });
         }
+
+        public PacienteDTO Paciente { get; private set; }
 
         public PacienteErrors Errors { get { return errors; } }
 
@@ -33,7 +40,8 @@ namespace ResidenciaDesafio1
             cpf = cpf.Trim();
             if (!cpf.IsValidCPF())
                 errors.AddError(PacienteField.CPF, "CPF inválido");
-            // TODO: Fazer uma condição se o paciente já estiver no cadastro
+            if (cpfsCadastrados.Any(c => c == cpf))
+                errors.AddError(PacienteField.CPF, "CPF já cadastrado");
             else
                 Paciente.CPF = cpf;
 
