@@ -10,9 +10,10 @@ namespace ResidenciaDesafio1
     {
         public string? CPF { get; private set; }
         public string? Data { get; private set; }
-
         public string? HoraInicial { get; private set; }
         public string? HoraFinal { get; private set; }
+
+        public char? OpcListagem { get; private set; }
 
         public void ReadData()
         {
@@ -94,6 +95,17 @@ namespace ResidenciaDesafio1
                 Console.Write("Hora inicial: ");
                 HoraInicial = Console.ReadLine();
             }
+        }
+
+        public void ReadOpcListagem()
+        {
+            char? opc = null;
+            while (opc != 't' || opc != 's')
+            {
+                Console.Write("Apresentar a agenda T-Toda ou P-Periodo: ");
+                opc = Console.ReadLine().Trim().ToLower()[0];
+            }
+            OpcListagem = opc;
         }
     }
 }
