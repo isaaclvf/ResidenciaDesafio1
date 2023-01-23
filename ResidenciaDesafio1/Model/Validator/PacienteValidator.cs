@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ResidenciaDesafio1.Model;
+using ResidenciaDesafio1.Model.DTO;
 
-namespace ResidenciaDesafio1
+namespace ResidenciaDesafio1.Model.Validator
 {
     public class PacienteValidator
     {
@@ -46,17 +48,17 @@ namespace ResidenciaDesafio1
             try
             {
                 Paciente.DataNascimento = DateTime.ParseExact(
-                    strDataNascimento, 
-                    "dd/MM/yyyy", 
+                    strDataNascimento,
+                    "dd/MM/yyyy",
                     System.Globalization.CultureInfo.InvariantCulture);
 
                 if (Paciente.DataNascimento > DateTime.Now.AddYears(-13))
-                    errors.AddError(PacienteField.DATA_NASCIMENTO, 
+                    errors.AddError(PacienteField.DATA_NASCIMENTO,
                         "O paciente deve ter pelo menos 13 anos no momento do cadastro");
             }
             catch (Exception)
             {
-                errors.AddError(PacienteField.DATA_NASCIMENTO, 
+                errors.AddError(PacienteField.DATA_NASCIMENTO,
                     "Data de nascimento deve estar no formato DD/MM/AAAA");
             }
 

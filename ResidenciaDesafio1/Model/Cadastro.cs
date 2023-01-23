@@ -4,8 +4,9 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using ResidenciaDesafio1.Model.DTO;
 
-namespace ResidenciaDesafio1
+namespace ResidenciaDesafio1.Model
 {
     public class Cadastro
     {
@@ -51,7 +52,7 @@ namespace ResidenciaDesafio1
         public void RemoveAgendamento(string cpf, DateOnly data, TimeOnly horaInicial)
         {
             // Verificar se esse cpf tem agendamento futuro
-            if (this.GetAgendamento(cpf) != null)
+            if (GetAgendamento(cpf) != null)
             {
                 var agendamento = agenda.Where(a => a.CPF == cpf && a.Data == data && a.HoraInicial == horaInicial).FirstOrDefault();
                 if (agendamento != null)
@@ -65,29 +66,29 @@ namespace ResidenciaDesafio1
             return agenda.Where(agendamento =>
             {
                 return agendamento.Data > DateOnly.FromDateTime(DateTime.Now)
-                || (agendamento.Data == DateOnly.FromDateTime(DateTime.Now)
-                && agendamento.HoraInicial > TimeOnly.FromDateTime(DateTime.Now));
+                || agendamento.Data == DateOnly.FromDateTime(DateTime.Now)
+                && agendamento.HoraInicial > TimeOnly.FromDateTime(DateTime.Now);
             }).ToList();
         }
 
         public Agendamento? GetAgendamento(string cpf)
         {
-            var agendamentosFuturos = this.GetAgenda();
+            var agendamentosFuturos = GetAgenda();
             return agendamentosFuturos.Where(a => a.CPF == cpf).FirstOrDefault();
         }
 
         public bool Disponivel(AgendamentoDTO agendamento)
         {
-            var agendandamentosFuturos = this.GetAgenda();
+            var agendandamentosFuturos = GetAgenda();
             // Verifica se existe alguma sobreposição
-            return !agendandamentosFuturos.Any(a => 
-                a.HoraInicial < agendamento.HoraFinal 
+            return !agendandamentosFuturos.Any(a =>
+                a.HoraInicial < agendamento.HoraFinal
                 && agendamento.HoraInicial < a.HoraFinal);
         }
 
         public bool ExisteAgendamento(string cpf, DateOnly data, TimeOnly horaInicial)
         {
-            return this.GetAgenda().Any(a => a.CPF == cpf && a.Data == data && a.HoraInicial == horaInicial);
+            return GetAgenda().Any(a => a.CPF == cpf && a.Data == data && a.HoraInicial == horaInicial);
         }
     }
 }

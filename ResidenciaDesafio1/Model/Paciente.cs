@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ResidenciaDesafio1
+namespace ResidenciaDesafio1.Model
 {
     public class Paciente
     {

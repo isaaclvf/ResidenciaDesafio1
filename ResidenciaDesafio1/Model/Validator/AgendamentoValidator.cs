@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ResidenciaDesafio1.Model;
+using ResidenciaDesafio1.Model.DTO;
 
-namespace ResidenciaDesafio1
+namespace ResidenciaDesafio1.Model.Validator
 {
     public class AgendamentoValidator
     {
         private readonly AgendamentoErrors errors = new AgendamentoErrors();
         private readonly Cadastro cadastro;
 
-        public AgendamentoValidator(Cadastro cadastro) 
+        public AgendamentoValidator(Cadastro cadastro)
         {
             Agendamento = new();
             this.cadastro = cadastro;
